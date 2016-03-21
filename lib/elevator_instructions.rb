@@ -7,6 +7,8 @@
 
 require 'pry'
 
+#add documentation
+
 def elevator_final_floor(instructions)
   floor = 0
   floors_visited = []
@@ -74,6 +76,7 @@ def elevator_ride_stats(floors_visited)
   puts "The lowest floor reached: #{lowest_floor_visited(floors_visited)}."
   puts "The highest floor reached: #{highest_floor_visited(floors_visited)}."
   puts "The most frequent floor(s) passed: #{most_frequent_floor_visited(floors_visited)}."
+  puts "Number of times passed the ground floor: #{find_frequency_of_ground_floor(floors_visited)}"
 end
 
-elevator_final_floor(")))))())(((()")
+elevator_final_floor(")(())))())(((()")
