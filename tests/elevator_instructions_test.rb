@@ -24,8 +24,22 @@ class ElevatorInstructionsTest < Minitest::Test
   end
 
   def test_populate_one_floor_up
-    result = populate_floors_visited([1, 2],3)
+    result = populate_floors_visited([1, 2], 3)
     assert_equal([1, 2, 3],result)
   end
 
+  def test_lowest_floor_visited
+    result = lowest_floor_visited([1, 2, 1, 0, -1, 0, 1, 2, 3, 2])
+    assert_equal(-1,result)
+  end
+
+  def test_highest_floor_visited
+    result = highest_floor_visited([1, 2, 1, 0, -1, 0, 1, 2, 3, 2])
+    assert_equal(3,result)
+  end
+
+  def test_most_frequent_floor_visited_multiple_results
+    result = most_frequent_floor_visited ([1, 2, 1, 0, -1, 0, 1, 2, 3, 2])
+    assert_equal([1, 2],result)
+  end 
 end

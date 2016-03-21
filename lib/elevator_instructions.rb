@@ -14,7 +14,7 @@ def elevator_final_floor(instructions)
     floor = move_elevator(signal,floor)
     populate_floors_visited(floors_visited, floor)
   end
-  p floors_visited
+  elevator_ride_stats(floors_visited)
   floor
 end
 
@@ -29,8 +29,43 @@ def move_elevator(signal, floor)
   floor
 end
 
-def populate_floors_visited(floor_visited,floor)
-  floor_visited << floor
+def populate_floors_visited(floors_visited,floor)
+  floors_visited << floor
 end
 
-elevator_final_floor("()())(((())))))")
+def lowest_floor_visited(floors_visited)
+  floors_visited.min
+end
+
+def highest_floor_visited(floors_visited)
+  floors_visited.max
+end
+
+def most_frequent_floor_visited(floors_visited)
+  floor_visited_occurance = {}
+  most_occurances = []
+  floors_visited.each do |x|
+    count = 0
+    floors_visited.each do |y|
+      if x == y
+        count += 1
+      end
+    end
+    floor_visited_occurance[x] = count
+  end
+  max_occurance = floor_visited_occurance.values.max
+  floor_visited_occurance.each do |k, v|
+    if v == max_occurance
+      most_occurances << k
+    end
+  end
+  most_occurances
+end
+
+def elevator_ride_stats(floors_visited)
+  puts "The lowest floor reached: #{lowest_floor_visited(floors_visited)}."
+  puts "The highest floor reached: #{highest_floor_visited(floors_visited)}."
+  puts "The most frequent floor(s) passed: #{most_frequent_floor_visited(floors_visited)}."
+end
+
+elevator_final_floor(")))))())(((()")
