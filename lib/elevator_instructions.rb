@@ -62,6 +62,14 @@ def most_frequent_floor_visited(floors_visited)
   most_occurances
 end
 
+def find_frequency_of_ground_floor(floors_visited)
+  count = 0
+  floors_visited.each do |e|
+    count += 1 if e == 0
+  end
+  count
+end
+
 def elevator_ride_stats(floors_visited)
   puts "The lowest floor reached: #{lowest_floor_visited(floors_visited)}."
   puts "The highest floor reached: #{highest_floor_visited(floors_visited)}."

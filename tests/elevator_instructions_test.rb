@@ -41,5 +41,11 @@ class ElevatorInstructionsTest < Minitest::Test
   def test_most_frequent_floor_visited_multiple_results
     result = most_frequent_floor_visited ([1, 2, 1, 0, -1, 0, 1, 2, 3, 2])
     assert_equal([1, 2],result)
-  end 
+  end
+
+  def test_frequency_of_ground_floor_twice
+    result = find_frequency_of_ground_floor([1, 2, 1, 0, -1, 0, 1, 2, 3, 2])
+    assert_equal(2,result)
+  end
+  
 end
